@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Books List</title>
+    <head>
+        <meta charset="UTF-8">
+        <title>Books List</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-</head>
-<body>
-    <div class="container">
-        <div class="row">
-            <h2>List of All Books</h2>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <h2>List of All Books</h2>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3">
+                    <a th:href="@{books/new}" class="btn btn-primary btn-sm mb-3"> Add Book </a>
+                </div>
+            </div>
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Book Name</th>
+                    <th scope="col">Author Name</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="book, i: ${books}">
+                    <th scope="row" th:text="${i.index + 1}"></th>
+                    <td th:text="${book.name}"></td>
+                    <td th:text="${book.author}"></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
-
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Book Name</th>
-                <th scope="col">Author Name</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="book, i: ${books}">
-                <th scope="row" th:text="${i.index + 1}"></th>
-                <td th:text="${book.name}"></td>
-                <td th:text="${book.author}"></td>
-            </tr>
-            </tbody>
-        </table>
-
-
-    </div>
-</body>
+    </body>
 </html>
