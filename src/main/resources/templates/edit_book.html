@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Book</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<div th:include="navbar" />
+
+<div class = "container">
+    <div class = "row">
+        <div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card mt-4">
+            <h1 class = "text-center"> Update Book </h1>
+            <div class = "card-body">
+                <form th:action="@{/books/edit/{id} (id=${book.id})}" th:object="${book}" method="POST">
+                    <div class="form-group">
+                        <label> Book Name </label>
+                        <input
+                                type="text"
+                                name="name"
+                                th:field="*{name}"
+                                class="form-control"
+                                placeholder="Enter Book Name, must be UNIQUE"
+                        />
+                    </div>
+                    <div class ="form-group">
+                        <label> Author Name </label>
+                        <input
+                                type="text"
+                                name="author"
+                                th:field="*{author}"
+                                class="form-control"
+                                placeholder="Enter Author Name"
+                        />
+                    </div>
+                    <div class = "box-footer">
+                        <button type="submit" class="btn btn-primary">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
