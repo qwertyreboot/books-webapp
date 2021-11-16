@@ -24,4 +24,8 @@ public class BookService {
     public Book getBookById(Long id) {
         return repo.getById(id);
     }
+
+    public void deleteBookById(Long id) {
+        repo.deleteById(id);
+    }
 }

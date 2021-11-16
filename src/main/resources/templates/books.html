@@ -40,6 +40,11 @@
                         >
                             Edit
                         </a>
+                        <a th:href="@{/books/remove/{id}(id=${book.id})}"
+                           class="btn btn-danger btn-sm mb-3"
+                        >
+                            Remove
+                        </a>
                     </td>
                 </tr>
                 </tbody>

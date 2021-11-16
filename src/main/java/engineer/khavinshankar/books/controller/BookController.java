@@ -50,4 +50,10 @@ public class BookController {
         service.saveBook(exbook);
         return "redirect:/books";
     }
+
+    @GetMapping("/books/remove/{id}")
+    public String deleteBook(@PathVariable Long id) {
+        service.deleteBookById(id);
+        return "redirect:/books";
+    }
 }
